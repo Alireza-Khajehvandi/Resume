@@ -4,6 +4,6 @@ from . import views
 
 urlpatterns = [
     # ex: /polls/
-    path("", views.current_datetime, name="index"),
+    path("", views.index_resume, name="index_resume"),
     
 ]
