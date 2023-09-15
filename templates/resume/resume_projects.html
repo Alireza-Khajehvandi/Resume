@@ -1,0 +1,19 @@
+{% extends "base.html" %} {% load static %} {% block list %}
+<ul id="nav" class="nav">
+  <li><a href="{% url 'resume_index' %}#home">Home</a></li>
+  <li>
+    <a href="{% url 'resume_index' %}#about">About</a>
+  </li>
+  <li><a href="{% url 'resume_index' %}#resume">Resume</a></li>
+  <li><a href="{% url 'resume_index' %}#portfolio">Works</a></li>
+  <li>
+    <a href="{% url 'resume_index' %}#testimonials">Testimonials</a>
+  </li>
+  <li><a href="{% url 'resume_index' %}#contact">Contact</a></li>
+  <li class="current"><a href="{% url 'resume_projects' %}">Projects</a></li>
+</ul>
+{% endblock %} {% block content %}
+<div>
+  <h1>Alireza Khajehvandi</h1>
+</div>
+{% endblock %}

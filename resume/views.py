@@ -3,5 +3,9 @@ from django.http import HttpResponse
 import datetime
 
 
-def index_resume(request):
-    return render(request, "resume/index_resume.html")
+def resume_index(request):
+    return render(request, "resume/resume_index.html")
+
+def resume_projects(request):
+    return render(request, "resume/resume_projects.html")
+
