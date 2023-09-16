@@ -9,3 +9,6 @@ def resume_index(request):
 def resume_projects(request):
     return render(request, "resume/resume_projects.html")
 
+def resume_demo(request):
+    return render(request, "resume/demo.html")
+
