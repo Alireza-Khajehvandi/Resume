@@ -13,7 +13,60 @@
   <li class="current"><a href="{% url 'resume_projects' %}">Projects</a></li>
 </ul>
 {% endblock %} {% block content %}
-<div>
-  <h1>Alireza Khajehvandi</h1>
-</div>
+<!-- Portfolio Section
+   ================================================== -->
+<section id="portfolio">
+  <div class="row">
+    <div class="twelve columns">
+      <!-- <h1>Projects Categories</h1> -->
+      <!-- portfolio-wrapper -->
+      
+      <div
+        id="portfolio-wrapper"
+        class="bgrid-quarters s-bgrid-thirds cf"></div>
+      <div class="twelve columns">
+        <!-- form -->
+        <form action="{% url 'resume_search' %}" method="GET">
+          <fieldset>
+          <input type="text" name="s" class="search" placeholder="Search here!" size="48">
+          <input type="submit" name="submit" class="submit" value="Search" >
+        </fieldset>
+        </form>
+        <!-- Form End -->
+      </div>
+      <!-- portfolio-wrapper end -->
+    </div>
+  </div>
+</section>
+
+<!-- Portfolio Section End-->
+<section id="style" style="padding: 90px 0 72px; background: #fff">
+  {% for project in projects %}
+  <div id="project-{{ forloop.counter }}" class="row add-bottom">
+    <div class="twelve columns">
+      <h1 style="text-align: center; margin: 10px 10px 40px 10px">
+        {{ project.title }}
+      </h1>
+      <div class="six columns">
+        <img class="scale-with-grid" src="{{ project.image.url }}" alt="" />
+        <p class="lead add-bottom">
+          {% for cat in project.category.all %}
+          <a
+            href="{% url 'resume_category' cat_name=cat.name %}"
+            class="akh-link"
+            >{{ cat.name }}</a
+          >
+          {% if not forloop.last%}, {% endif %} {% endfor %}
+        </p>
+        <hr />
+      </div>
+      <div class="six columns">
+        <p class="lead add-bottom">{{ project.content }}</p>
+        <hr />
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+  <!-- Row End-->
+</section>
 {% endblock %}
