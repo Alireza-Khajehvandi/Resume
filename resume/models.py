@@ -4,14 +4,17 @@ from website.models import Contact
 
 # Create your models here.
 
+
 class Category(models.Model):
     name = models.CharField(max_length=255)
 
     def __str__(self):
         return self.name
-    
+
+
 class Project(models.Model):
-    image = models.ImageField(upload_to="resume/", default="resume/default.jpg")
+    image = models.ImageField(
+        upload_to="resume/", default="resume/default.jpg")
     author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     title = models.CharField(max_length=255)
     content = models.TextField()
@@ -29,8 +32,3 @@ class Project(models.Model):
 
     def __str__(self):
         return self.title
-
-
-    
-
-

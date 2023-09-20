@@ -5,5 +5,7 @@ from resume.models import Project
 from django.db.models import Q
 
 # Create your views here.
+
+
 def website_index(request):
     return render(request, "website/website_index.html")
