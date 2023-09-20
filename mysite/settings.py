@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # new app
     "resume.apps.ResumeConfig",
+    "website.apps.WebsiteConfig",
 ]
 
 MIDDLEWARE = [

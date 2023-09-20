@@ -1,5 +1,5 @@
 from django.contrib import admin
-from resume.models import Projects, Contact, Category
+from resume.models import Project, Category
 
 
 class ProjectsAdmin(admin.ModelAdmin):
@@ -14,16 +14,6 @@ class ProjectsAdmin(admin.ModelAdmin):
     serch_fields = ["title", "content"]
 
 
-admin.site.register(Projects, ProjectsAdmin)
+admin.site.register(Project, ProjectsAdmin)
 
-
-class ContactAdmin(admin.ModelAdmin):
-    date_hierarchy = "created_date"
-    list_display = ["name", "email", "created_date"]
-    list_filter = ["email"]
-    serch_fields = ["name", "message"]
-
-
-# Register your models here.
-admin.site.register(Contact, ContactAdmin)
 admin.site.register(Category)

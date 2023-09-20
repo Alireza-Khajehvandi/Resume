@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from website.models import Contact
 
 # Create your models here.
 
@@ -9,7 +10,7 @@ class Category(models.Model):
     def __str__(self):
         return self.name
     
-class Projects(models.Model):
+class Project(models.Model):
     image = models.ImageField(upload_to="resume/", default="resume/default.jpg")
     author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     title = models.CharField(max_length=255)
@@ -30,19 +31,6 @@ class Projects(models.Model):
         return self.title
 
 
-class Contact(models.Model):
-    name = models.CharField(max_length=255)
-    email = models.EmailField()
-    subject = models.CharField(max_length=255)
-    message = models.TextField()
-    created_date = models.DateTimeField(auto_now_add=True)
-    updated_date = models.DateTimeField(auto_now=True)
-
-    class Meta:
-        ordering = ["-created_date"]
-
-    def __str__(self):
-        return self.name
     
 
 
